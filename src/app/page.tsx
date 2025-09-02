@@ -1,26 +1,21 @@
+// src/app/page.tsx
 import HomePage from "@/components/HomePage";
-import { lucia } from "@/lib/auth";
-import { cookies } from "next/headers";
+import { validateRequest } from "@/lib/action";
 import { redirect } from "next/navigation";
 
-export default function Home() {
+export default async function Home() {
+	const { user } = await validateRequest();
+
+	if (!user) {
+		redirect("/login");
+	}
+
 	return (
 		<div>
+			<h1 className="flex justify-center text-5xl">
+				Welcome, M.R {user.username}
+			</h1>
 			<HomePage />
 		</div>
 	);
-}
-export async function logoutAction() {
-	"use server";
-
-	const sessionCookie = cookies().get(lucia.sessionCookieName);
-	if (sessionCookie) {
-		await lucia.invalidateSession(sessionCookie.value);
-		cookies().set({
-			name: lucia.sessionCookieName,
-			value: "",
-			expires: new Date(0),
-		});
-	}
-	redirect("/login");
 }
