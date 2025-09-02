@@ -12,16 +12,17 @@ const cardsData = [
 	{ title: "Worker users", path: "/Worker" },
 ];
 
-export default function HomePage({
-	logoutAction,
-}: {
-	logoutAction: () => Promise<void>;
-}) {
+export default function HomePage() {
+	// 	{
+	// 	logoutAction,
+	// }: {
+	// 	logoutAction: () => Promise<void>;
+	// }) {
 	const router = useRouter();
 
-	const handleLogout = async () => {
-		await logoutAction();
-	};
+	// 	const handleLogout = async () => {
+	// 		await logoutAction();
+	// 	};
 
 	return (
 		<div className="flex h-full flex-row items-center justify-center gap-6 p-9 text-3xl">
