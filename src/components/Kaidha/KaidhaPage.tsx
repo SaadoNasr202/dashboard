@@ -1,4 +1,6 @@
+// pages/KaidhaPage.tsx (or wherever your KaidhaPage component is)
 "use client";
+import { KaidhaTable } from "@/components/Kaidha/KaidhaTable"; // Import the new component
 import { KaidhaFormData } from "@/lib/types/dataForm";
 import { useEffect, useState } from "react";
 
@@ -42,27 +44,8 @@ export default function KaidhaPage({
 
 	return (
 		<div>
-			<h1>Kaidha Data</h1>
-
 			{data && data.length > 0 ? (
-				<ul>
-					{data.map((item, index) => (
-						<li
-							key={index}
-							style={{
-								border: "1px solid #ccc",
-								margin: "10px",
-								padding: "10px",
-							}}
-						>
-							{Object.entries(item).map(([key, value]) => (
-								<p key={key}>
-									<strong>{key}:</strong> {JSON.stringify(value)}
-								</p>
-							))}
-						</li>
-					))}
-				</ul>
+				<KaidhaTable data={data} />
 			) : (
 				<div>No data found.</div>
 			)}

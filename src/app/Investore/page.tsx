@@ -1,3 +1,4 @@
+import InvestorePage from "@/components/Investore/InvestorePage";
 import { getUser } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { TB_Investore } from "@/lib/schema";
@@ -6,7 +7,7 @@ import { InvestoreFormData } from "@/lib/types/dataForm";
 export default function InveStore() {
 	return (
 		<div>
-			<div>e</div>
+			<InvestorePage getInvestorsDataAction={getInvestorsDataAction} />
 		</div>
 	);
 }
@@ -14,7 +15,7 @@ export default function InveStore() {
 async function getInvestorsDataAction(): Promise<
 	{ data: InvestoreFormData[] } | { error: string } | undefined
 > {
-	"user server";
+	"use server";
 	try {
 		const user = await getUser();
 		if (!user) {

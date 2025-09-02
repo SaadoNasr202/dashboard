@@ -1,3 +1,4 @@
+import PartnerPage from "@/components/Partner/PartnerPage";
 import { getUser } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { TB_Partner } from "@/lib/schema";
@@ -6,14 +7,14 @@ import { PartnerFormData } from "@/lib/types/dataForm";
 export default function Partner() {
 	return (
 		<div>
-			<div>e</div>
+			<PartnerPage getPartnersDataAction={getPartnersDataAction} />
 		</div>
 	);
 }
 async function getPartnersDataAction(): Promise<
 	{ data: PartnerFormData[] } | { error: string } | undefined
 > {
-	"user server";
+	"use server";
 	try {
 		const user = await getUser();
 		if (!user) {

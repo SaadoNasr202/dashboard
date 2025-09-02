@@ -83,3 +83,4 @@ export interface WorkerFormData {
 	idImage: string | null;
 	agreed: boolean;
 }
+	

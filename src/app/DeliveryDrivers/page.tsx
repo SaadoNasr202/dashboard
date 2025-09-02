@@ -1,3 +1,4 @@
+import DriverPage from "@/components/Driver/DriverPage";
 import { getUser } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { TB_DeliveryDrivers } from "@/lib/schema";
@@ -6,7 +7,7 @@ import { DeliveryDriverFormData } from "@/lib/types/dataForm";
 export default function DeliveryDrivers() {
 	return (
 		<div>
-			<div>e</div>
+			<DriverPage getDeliveryDriversDataAction={getDeliveryDriversDataAction} />
 		</div>
 	);
 }
@@ -14,7 +15,7 @@ export default function DeliveryDrivers() {
 async function getDeliveryDriversDataAction(): Promise<
 	{ data: DeliveryDriverFormData[] } | { error: string } | undefined
 > {
-	"user server";
+	"use server";
 	try {
 		const user = await getUser();
 		if (!user) {

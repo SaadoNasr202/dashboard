@@ -1,4 +1,4 @@
-import KaidhaPage from "@/components/KaidhaPage";
+import KaidhaPage from "@/components/Kaidha/KaidhaPage";
 import { getUser } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { TB_KaidhaUsers } from "@/lib/schema";

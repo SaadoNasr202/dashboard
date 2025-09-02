@@ -1,3 +1,4 @@
+import WorkerPage from "@/components/Worker/WorkerPage";
 import { getUser } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { TB_Worker } from "@/lib/schema";
@@ -6,14 +7,14 @@ import { WorkerFormData } from "@/lib/types/dataForm";
 export default function Worker() {
 	return (
 		<div>
-			<div>e</div>
+			<WorkerPage getWorkersDataAction={getWorkersDataAction} />
 		</div>
 	);
 }
 async function getWorkersDataAction(): Promise<
 	{ data: WorkerFormData[] } | { error: string } | undefined
 > {
-	"user server";
+	"use server";
 	try {
 		const user = await getUser();
 		if (!user) {

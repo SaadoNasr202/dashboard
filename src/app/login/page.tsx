@@ -3,6 +3,7 @@ import { lucia } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { TB_user } from "@/lib/schema";
 import { LoginFormError, loginFormSchema } from "@/lib/types/authSchemas";
+import hash from "@/lib/utils";
 import { eq } from "drizzle-orm";
 import { cookies } from "next/headers";
 import { z } from "zod";
@@ -34,8 +35,7 @@ async function LoginAction(
 		if (!user) {
 			return { field: "username", message: "Username not found" };
 		}
-		// if (user[0].password !== hash(data.password)) {
-		if (user[0].password !== data.password) {
+		if (user[0].password !== hash(data.password)) {
 			return { field: "password", message: "Incorrect password" };
 		}
 		const session = await lucia.createSession(user[0].id, {});

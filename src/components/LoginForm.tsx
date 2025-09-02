@@ -3,7 +3,6 @@
 import { LoginFormError, loginFormSchema } from "@/lib/types/authSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff } from "lucide-react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -187,17 +186,6 @@ export function LoginForm({
 						</Form>
 
 						{/* النص "Don't have an account? Register." */}
-						<div className="mt-4 text-center">
-							<span className="text-sm text-white">
-								Don't have an account?{" "}
-							</span>
-							<Link
-								href="/register"
-								className="text-sm font-medium text-blue-500 hover:underline"
-							>
-								Register.
-							</Link>
-						</div>
 					</div>
 				</div>
 			</div>
