@@ -12,7 +12,7 @@ export default async function Home() {
 
 	return (
 		<div>
-			<h1 className="flex justify-center text-5xl">
+			<h1 className="flex justify-center text-3xl md:text-4xl">
 				Welcome, M.R {user.username}
 			</h1>
 			<HomePage />

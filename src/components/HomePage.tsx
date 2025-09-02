@@ -14,11 +14,11 @@ const cardsData = [
 export default function HomePage() {
 	const router = useRouter();
 	return (
-		<div className="flex h-full flex-row items-center justify-center gap-6 p-9 text-3xl">
+		<div className="grid h-full grid-cols-1 gap-6 p-9 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
 			{cardsData.map((card) => (
-				<Card key={card.path} className="w-full max-w-sm">
+				<Card key={card.path} className="w-full">
 					<CardHeader>
-						<CardTitle>{card.title}</CardTitle>
+						<CardTitle className="text-xl">{card.title}</CardTitle>
 					</CardHeader>
 					<CardFooter className="flex-col gap-2">
 						<Button
