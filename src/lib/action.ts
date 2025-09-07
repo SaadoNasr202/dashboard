@@ -18,3 +18,4 @@ export const validateRequest = async () => {
 	}
 	return { user, session };
 };
+	
