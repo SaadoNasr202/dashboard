@@ -35,7 +35,10 @@ export function WorkerTable({ data }: { data: WorkerFormData[] }) {
 					<TableRow key={index}>
 						{headers.map((header) => (
 							<TableCell key={header}>
-								{JSON.stringify(item[header as keyof WorkerFormData])}
+								{typeof item[header as keyof WorkerFormData] === "string" ||
+								typeof item[header as keyof WorkerFormData] === "number"
+									? item[header as keyof WorkerFormData]
+									: JSON.stringify(item[header as keyof WorkerFormData])}
 							</TableCell>
 						))}
 					</TableRow>

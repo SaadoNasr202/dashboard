@@ -35,7 +35,10 @@ export function PartnerTable({ data }: { data: PartnerFormData[] }) {
 					<TableRow key={index}>
 						{headers.map((header) => (
 							<TableCell key={header}>
-								{JSON.stringify(item[header as keyof PartnerFormData])}
+								{typeof item[header as keyof PartnerFormData] === "string" ||
+								typeof item[header as keyof PartnerFormData] === "number"
+									? item[header as keyof PartnerFormData]
+									: JSON.stringify(item[header as keyof PartnerFormData])}
 							</TableCell>
 						))}
 					</TableRow>

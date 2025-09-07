@@ -35,7 +35,10 @@ export function KaidhaTable({ data }: { data: KaidhaFormData[] }) {
 					<TableRow key={index}>
 						{headers.map((header) => (
 							<TableCell key={header}>
-								{JSON.stringify(item[header as keyof KaidhaFormData])}
+								{typeof item[header as keyof KaidhaFormData] === "string" ||
+								typeof item[header as keyof KaidhaFormData] === "number"
+									? item[header as keyof KaidhaFormData]
+									: JSON.stringify(item[header as keyof KaidhaFormData])}
 							</TableCell>
 						))}
 					</TableRow>

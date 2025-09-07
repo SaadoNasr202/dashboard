@@ -43,13 +43,16 @@ export const TB_KaidhaUsers = pgTable("KaidhaUser", {
 	lastName: text("last_name"),
 	fatherName: text("father_name"),
 	grandFatherName: text("grand_father_name"),
-	birthDate: date("birth_date"), // This should accept Date objects
+	birthDate: timestamp("birth_date", { withTimezone: true, mode: "date" }),
 	nationality: text("nationality"),
 	socialStatus: text("social_status"),
 	familyMembersCount: integer("family_members_count"),
 	idType: text("id_type"),
 	personalIdNumber: text("personal_id_number"),
-	idExpirationDate: date("id_expiration_date"),
+	idExpirationDate: timestamp("id_expiration_date", {
+		withTimezone: true,
+		mode: "date",
+	}),
 	phoneNumber: text("phone_number"),
 	whatsappNumber: text("whatsapp_number"),
 	email: text("email"),
@@ -63,8 +66,15 @@ export const TB_KaidhaUsers = pgTable("KaidhaUser", {
 	jobTitle: text("job_title"),
 	yearsOfExperience: integer("years_of_experience"),
 	grossSalary: text("gross_salary"),
+	locationwork: text("locationwork"),
+	locationhouse: text("locationhouse"),
 	workAddress: text("work_address"),
+	Installments: text("Installments"),
+	hasAdditionalIncome: text("hasAdditionalIncome"),
+	additionalAmount: text("additionalAmount"),
+	incomeSource: text("incomeSource"),
 });
+
 export const TB_Partner = pgTable("KaidhaStore", {
 	id: text("id").primaryKey(),
 	storeName: text("store_name").notNull(),
@@ -73,9 +83,11 @@ export const TB_Partner = pgTable("KaidhaStore", {
 	city: text("city"),
 	branchCount: text("branch_count"),
 	phoneNumber: text("phone_number"),
-	englishStoreName: text("english_store_name"),
 	personalIdNumber: text("personal_id_number"),
-	detailedAddress: text("detailed_address"),
+	location: text("location"),
+	idImage: text("id_image"),
+	Municipallicense: text("Municipallicense"),
+	Storefrontimage: text("Storefrontimage"),
 	agreed: boolean("agreed").default(false),
 });
 
@@ -90,6 +102,9 @@ export const TB_DeliveryDrivers = pgTable("DeliveryDriver", {
 	email: text("email"),
 	region: text("region").notNull(),
 	idImage: text("id_image"),
+	idDriver: text("idDriver"),
+	idVichle: text("idVichle"),
+	Picture: text("Picture"),
 	agreed: boolean("agreed").default(false).notNull(),
 });
 
@@ -122,5 +137,8 @@ export const TB_Worker = pgTable("Worker", {
 	email: text("email"),
 	region: text("region").notNull(),
 	idImage: text("id_image"),
+	idDriver: text("idDriver"),
+	idVichle: text("idVichle"),
+	Picture: text("Picture"),
 	agreed: boolean("agreed").default(false).notNull(),
 });
