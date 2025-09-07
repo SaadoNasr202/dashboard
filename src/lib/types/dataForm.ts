@@ -24,6 +24,12 @@ export interface KaidhaFormData {
 	yearsOfExperience: string | null;
 	grossSalary: string | null;
 	workAddress: string | null;
+	locationhouse: string | null;
+	locationwork: string | null;
+	Installments: string | null;
+	hasAdditionalIncome: string | null;
+	additionalAmount: string | null;
+	incomeSource: string | null;
 }
 
 export interface PartnerFormData {
@@ -37,6 +43,10 @@ export interface PartnerFormData {
 	englishStoreName: string | null;
 	personalIdNumber: string | null;
 	detailedAddress: string | null;
+	idImage: string | null;
+	Municipallicense: string | null;
+	Storefrontimage: string | null;
+	location: string | null;
 	agreed: boolean | null;
 }
 
@@ -51,6 +61,9 @@ export interface DeliveryDriverFormData {
 	email: string | null;
 	region: string;
 	idImage: string | null;
+	idDriver: string | null;
+	idVichle: string | null;
+	Picture: string | null;
 	agreed: boolean;
 }
 export interface InvestoreFormData {
@@ -81,6 +94,8 @@ export interface WorkerFormData {
 	email: string | null;
 	region: string;
 	idImage: string | null;
+	idDriver: string | null;
+	idVichle: string | null;
+	Picture: string | null;
 	agreed: boolean;
 }
-	
