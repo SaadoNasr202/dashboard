@@ -94,8 +94,6 @@ export interface WorkerFormData {
 	email: string | null;
 	region: string;
 	idImage: string | null;
-	idDriver: string | null;
-	idVichle: string | null;
 	Picture: string | null;
 	agreed: boolean;
 }
